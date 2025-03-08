@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  dashy:
+    image: lissy93/dashy:latest
+    ports:
+      - "1344:8080"
+    volumes:
+      - dashy_data:/app/user-data
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: any
+
+volumes:
+  dashy_data:

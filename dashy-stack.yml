@@ -4,7 +4,7 @@ services:
   dashy:
     image: lissy93/dashy:latest
     ports:
-      - "1344:8080"
+      - "8080:8080"
     volumes:
       - dashy_data:/app/user-data
     deploy:

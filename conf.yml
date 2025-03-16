@@ -1,0 +1,57 @@
+---
+pageInfo:
+  title: My Dashboard
+appConfig:
+  theme: colorful
+  layout: auto
+  language: fr
+  startingView: default
+  statusCheck: false
+  defaultOpeningMethod: sametab
+  routingMode: hash
+  hideComponents:
+    - hideFooter
+    - hideSettings
+sections:
+  - name: CATIE
+    displayData:
+      sortBy: alphabetical
+      collapsed: false
+      hideForGuests: false
+      cutToHeight: true
+    items:
+      - title: Dropbox
+        description: File management
+        icon: https://cdn.worldvectorlogo.com/logos/dropbox-1.svg
+        url: https://www.dropbox.com/home
+        id: 0_358_dropbox
+      - title: Outlook
+        description: Mail
+        icon: >-
+          https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1101px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png
+        url: https://outlook.office.com/mail/
+        id: 1_358_outlook
+      - title: Gaaspard
+        description: Time tracking
+        icon: >-
+          https://gaaspard.catie.fr/rails/assets/timesheet-55669f809ecff2c035a5d75034090f5c93b47787e2e1b4df2d8a5fd2e112a46e.png
+        url: https://gaaspard.catie.fr/
+        id: 1_666_gaaspard
+      - title: Teams
+        description: Meetings
+        icon: >-
+          https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/2203px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png
+        url: https://teams.microsoft.com/v2/
+        id: 2_358_teams
+      - title: Silae
+        description: Vacation and leave management
+        icon: >-
+          https://play-lh.googleusercontent.com/Ujd5uGVvguukX8H7ncChXCOBOBYwVeejEIoSMvdLAw9Jq45j3U0YOyzDvSXKxw2lEg=w600-h300-pc0xffffff-pd
+        url: https://my.silae.fr/
+        id: 3_358_silae
+      - title: Discord
+        icon: >-
+          https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png
+        url: https://discord.gg/fZ8dU9jkyj
+        id: 4_358_discord
+    icon: fas fa-building

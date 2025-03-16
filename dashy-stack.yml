@@ -3,10 +3,12 @@ version: '3.2'
 services:
   dashy:
     image: lissy93/dashy:latest
-    ports:
-      - "8080:8080"
     volumes:
-      - dashy_data:/app/user-data
+      - dashy_data:/app/public/data
+    networks:
+      - proxy
+    ports:
+      - 8080:8080
     deploy:
       mode: replicated
       replicas: 1
@@ -15,3 +17,7 @@ services:
 
 volumes:
   dashy_data:
+
+networks:
+  proxy:
+    external: true

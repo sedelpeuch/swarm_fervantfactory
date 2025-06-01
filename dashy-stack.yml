@@ -3,7 +3,7 @@ version: '3.8'
 
 services:
   dashy:
-    image: lissy93/dashy:latest
+    image: lissy93/dashy:1.9.0
     volumes:
       - dashy_data:/app/public/data
       - ./conf.yml:/app/user-data/conf.yml

@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    ports:
+      - "3001:3001"
+    volumes:
+      - uptime_kuma_data:/app/data
+    environment:
+      - TZ=Europe/Paris
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+volumes:
+  uptime_kuma_data:
+    driver: local

@@ -1,57 +1,116 @@
----
 pageInfo:
-  title: My Dashboard
+  title: FervantFactory
+  navLinks: []
 appConfig:
-  theme: colorful
-  layout: auto
+  theme: night-bat
+  layout: vertical
   language: fr
   startingView: default
   statusCheck: false
   defaultOpeningMethod: sametab
   routingMode: hash
   hideComponents:
-    - hideFooter
-    - hideSettings
+    hideHeading: false
+    hideNav: true
+    hideSearch: true
+    hideSettings: false
+    hideFooter: true
+  iconSize: medium
+  statusCheckInterval: 0
+  faviconApi: allesedv
+  enableMultiTasking: false
+  widgetsAlwaysUseProxy: false
+  webSearch:
+    disableWebSearch: false
+    searchEngine: duckduckgo
+    openingMethod: newtab
+    searchBangs: {}
+  enableFontAwesome: true
+  enableMaterialDesignIcons: true
+  auth:
+    enableGuestAccess: false
+    users: []
+    enableOidc: false
+    oidc: {}
+    enableHeaderAuth: false
+    headerAuth:
+      userHeader: REMOTE_USER
+      proxyWhitelist: []
+    enableKeycloak: false
+  showSplashScreen: false
+  preventWriteToDisk: false
+  preventLocalSave: false
+  disableConfiguration: false
+  disableConfigurationForNonAdmin: false
+  allowConfigEdit: true
+  enableServiceWorker: false
+  disableContextMenu: false
+  disableUpdateChecks: false
+  disableSmartSort: false
+  enableErrorReporting: false
 sections:
-  - name: CATIE
+  - name: Applications
     displayData:
       sortBy: alphabetical
       collapsed: false
       hideForGuests: false
       cutToHeight: true
+      rows: 1
+      cols: 1
     items:
-      - title: Dropbox
-        description: File management
-        icon: https://cdn.worldvectorlogo.com/logos/dropbox-1.svg
-        url: https://www.dropbox.com/home
-        id: 0_358_dropbox
-      - title: Outlook
-        description: Mail
-        icon: >-
-          https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg/1101px-Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg.png
-        url: https://outlook.office.com/mail/
-        id: 1_358_outlook
-      - title: Gaaspard
-        description: Time tracking
-        icon: >-
-          https://gaaspard.catie.fr/rails/assets/timesheet-55669f809ecff2c035a5d75034090f5c93b47787e2e1b4df2d8a5fd2e112a46e.png
-        url: https://gaaspard.catie.fr/
-        id: 1_666_gaaspard
-      - title: Teams
-        description: Meetings
-        icon: >-
-          https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg/2203px-Microsoft_Office_Teams_%282018%E2%80%93present%29.svg.png
-        url: https://teams.microsoft.com/v2/
-        id: 2_358_teams
-      - title: Silae
-        description: Vacation and leave management
-        icon: >-
-          https://play-lh.googleusercontent.com/Ujd5uGVvguukX8H7ncChXCOBOBYwVeejEIoSMvdLAw9Jq45j3U0YOyzDvSXKxw2lEg=w600-h300-pc0xffffff-pd
-        url: https://my.silae.fr/
-        id: 3_358_silae
-      - title: Discord
-        icon: >-
-          https://logodownload.org/wp-content/uploads/2017/11/discord-logo-1-1.png
-        url: https://discord.gg/fZ8dU9jkyj
-        id: 4_358_discord
-    icon: fas fa-building
+      - title: Dashy
+        description: Dashboard
+        icon: https://dashy.to/img/dashy.png
+        url: http://ferventfactory.tailb5ad1.ts.net/
+        id: 0_1255_dashy
+    icon: fas fa-laptop
+  - name: Monitoring
+    displayData:
+      sortBy: alphabetical
+      collapsed: false
+      hideForGuests: false
+      cutToHeight: true
+      rows: 1
+      cols: 1
+    items:
+      - title: Tailscale
+        description: Tailscale VPN
+        icon: https://cdn2.steamgriddb.com/icon/7a2af65d5b4d03e85908eaddc6fbdad9.png
+        url: https://tailscale.com/admin/machines
+        id: 0_1062_tailscale
+      - title: Portainer
+        description: Portainer Container Management
+        icon: https://www.portainer.io/favicon.ico
+        url: http://ferventfactory.tailb5ad1.ts.net:9443/
+        id: 1_1062_portainer
+      - title: Uptime Kuma
+        description: Uptime Kuma Monitoring
+        icon: https://static-00.iconduck.com/assets.00/uptime-kuma-icon-2048x1892-iigw6pmz.png
+        url: http://ferventfactory.tailb5ad1.ts.net:3001/
+        id: 2_1062_uptimekuma
+    icon: fas fa-network-wired
+  - name: Widgets
+    displayData:
+      sortBy: alphabetical
+      collapsed: false
+      hideForGuests: false
+      cutToHeight: true
+      rows: 2
+      cols: 1
+    widgets:
+      - type: clock
+        options:
+          timeZone: Europe/Paris
+          format: fr-FR
+        id: 0_727_clock
+      - type: uptime-kuma
+        options:
+          url: http://100.124.86.40:3001/metrics
+          useProxy: true
+          title: Uptime Kuma
+        id: 1_727_uptimekuma
+      - type: rss-feed
+        options:
+          rssUrl: https://delpeuch.net/blog/rss.xml
+          limit: 3
+        id: 2_727_rssfeed

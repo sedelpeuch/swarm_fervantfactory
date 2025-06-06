@@ -10,7 +10,7 @@ services:
     ports:
       - "80:8080"
     environment:
-      - CONF_HASH=d149e171d2da6259fa9999fb064e1137dfac40c44d1cecf8750cadead549b92b
+      - CONF_HASH=dde70cff8b9ffedbe85d399a197b9643829e5344036384867d9d7276f78995bf
     deploy:
       mode: replicated
       replicas: 2
@@ -18,12 +18,13 @@ services:
         condition: on-failure
       update_config:
         parallelism: 1
-        delay: 10s
+        delay: 360s
         order: start-first
         failure_action: rollback
+        monitor: 120s  # Surveille pendant 2 minutes après le déploiement
       rollback_config:
         parallelism: 1
-        delay: 5s
+        delay: 360s
         order: start-first
         failure_action: pause
 

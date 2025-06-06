@@ -3,7 +3,7 @@ pageInfo:
   navLinks: []
 appConfig:
   theme: night-bat
-  layout: vertical
+  layout: auto
   language: fr
   startingView: default
   statusCheck: false
@@ -15,7 +15,7 @@ appConfig:
     hideSearch: true
     hideSettings: false
     hideFooter: true
-  iconSize: medium
+  iconSize: large
   statusCheckInterval: 0
   faviconApi: allesedv
   enableMultiTasking: false
@@ -48,13 +48,13 @@ appConfig:
   disableUpdateChecks: false
   disableSmartSort: false
   enableErrorReporting: false
+  colCount: 3
 sections:
   - name: Applications
     displayData:
       sortBy: alphabetical
       collapsed: false
       hideForGuests: false
-      cutToHeight: true
       rows: 1
       cols: 1
     items:
@@ -69,7 +69,6 @@ sections:
       sortBy: alphabetical
       collapsed: false
       hideForGuests: false
-      cutToHeight: true
       rows: 1
       cols: 1
     items:
@@ -94,7 +93,6 @@ sections:
       sortBy: alphabetical
       collapsed: false
       hideForGuests: false
-      cutToHeight: true
     items:
       - title: Daily Dev
         description: Dev news and articles
@@ -130,8 +128,7 @@ sections:
       sortBy: alphabetical
       collapsed: false
       hideForGuests: false
-      cutToHeight: true
-      rows: 2
+      rows: 1
       cols: 1
     widgets:
       - type: clock
@@ -145,8 +142,3 @@ sections:
           useProxy: true
           title: Uptime Kuma
         id: 1_727_uptimekuma
-      - type: rss-feed
-        options:
-          rssUrl: https://delpeuch.net/blog/rss.xml
-          limit: 3
-        id: 2_727_rssfeed

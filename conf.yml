@@ -114,3 +114,39 @@ sections:
           rssUrl: https://delpeuch.net/blog/rss.xml
           limit: 3
         id: 2_727_rssfeed
+  - name: Devlinks
+    displayData:
+      sortBy: alphabetical
+      collapsed: false
+      hideForGuests: false
+      cutToHeight: true
+    items:
+      - title: Daily Dev
+        description: Dev news and articles
+        icon: >-
+          https://play-lh.googleusercontent.com/ZejAkIHFw3knpmq77o6jJd9yDmzoqWOU-GmHZDIpxMjm8V30_WbR06VASibWPSxjc-W1
+        url: https://app.daily.dev/
+        id: 0_1155_devlinks
+      - title: Refactoring Guru
+        description: Design and code refactoring guidelines
+        icon: >-
+          https://refactoring.guru/images/content-public/logos/logo-new.png?id=97d554614702483f31e38b32e82d8e34
+        url: https://refactoring.guru/fr/design-patterns
+      - title: GitHub Next
+        description: GitHub's future features
+        icon: >-
+          https://githubnext.com/assets/images/next-octocat.svg
+        url: https://githubnext.com/
+        id: 1_1155_githubnext
+      - title: GitHub Blog
+        description: GitHub's blog
+        icon: >-
+          https://logo-marque.com/wp-content/uploads/2020/12/GitHub-Embleme.png
+        url: https://github.blog/latest/
+        id: 2_1155_githubblog
+      - title: delpeuch.net
+        description: My personal blog
+        icon: >-
+          https://delpeuch.net/img/logo.webp
+        url: https://delpeuch.net/
+        id: 3_1155_delpeuchblog

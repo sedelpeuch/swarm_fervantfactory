@@ -9,9 +9,11 @@ services:
       - ./conf.yml:/app/user-data/conf.yml
     ports:
       - "80:8080"
+    environment:
+      - CONF_HASH=d149e171d2da6259fa9999fb064e1137dfac40c44d1cecf8750cadead549b92b
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 2
       restart_policy:
         condition: on-failure
 

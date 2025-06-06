@@ -89,31 +89,6 @@ sections:
         url: http://ferventfactory.tailb5ad1.ts.net:3001/
         id: 2_1062_uptimekuma
     icon: fas fa-network-wired
-  - name: Widgets
-    displayData:
-      sortBy: alphabetical
-      collapsed: false
-      hideForGuests: false
-      cutToHeight: true
-      rows: 2
-      cols: 1
-    widgets:
-      - type: clock
-        options:
-          timeZone: Europe/Paris
-          format: fr-FR
-        id: 0_727_clock
-      - type: uptime-kuma
-        options:
-          url: http://100.124.86.40:3001/metrics
-          useProxy: true
-          title: Uptime Kuma
-        id: 1_727_uptimekuma
-      - type: rss-feed
-        options:
-          rssUrl: https://delpeuch.net/blog/rss.xml
-          limit: 3
-        id: 2_727_rssfeed
   - name: Devlinks
     displayData:
       sortBy: alphabetical
@@ -150,3 +125,28 @@ sections:
           https://delpeuch.net/img/logo.webp
         url: https://delpeuch.net/
         id: 3_1155_delpeuchblog
+  - name: Widgets
+    displayData:
+      sortBy: alphabetical
+      collapsed: false
+      hideForGuests: false
+      cutToHeight: true
+      rows: 2
+      cols: 1
+    widgets:
+      - type: clock
+        options:
+          timeZone: Europe/Paris
+          format: fr-FR
+        id: 0_727_clock
+      - type: uptime-kuma
+        options:
+          url: http://100.124.86.40:3001/metrics
+          useProxy: true
+          title: Uptime Kuma
+        id: 1_727_uptimekuma
+      - type: rss-feed
+        options:
+          rssUrl: https://delpeuch.net/blog/rss.xml
+          limit: 3
+        id: 2_727_rssfeed

@@ -16,13 +16,13 @@ services:
         condition: on-failure
       update_config:
         parallelism: 1
-        delay: 360s
+        delay: 120s
         order: start-first
         failure_action: rollback
         monitor: 120s  # Surveille pendant 2 minutes après le déploiement
       rollback_config:
         parallelism: 1
-        delay: 360s
+        delay: 120s
         order: start-first
         failure_action: pause
       placement:

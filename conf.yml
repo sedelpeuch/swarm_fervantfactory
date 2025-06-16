@@ -63,6 +63,11 @@ sections:
         icon: https://dashy.to/img/dashy.png
         url: http://ferventfactory.tailb5ad1.ts.net/
         id: 0_1255_dashy
+      - title: Home Assistant
+        description: Home automation platform
+        icon: https://www.home-assistant.io/images/favicon-192x192.png
+        url: http://ferventfactory.tailb5ad1.ts.net:8123/
+        id: 1_1255_homeassistant
     icon: fas fa-laptop
   - name: Monitoring
     displayData:
@@ -80,8 +85,9 @@ sections:
       - title: Portainer
         description: Portainer Container Management
         icon: https://www.portainer.io/favicon.ico
-        url: http://ferventfactory.tailb5ad1.ts.net:9443/
+        url: https://ferventfactory.tailb5ad1.ts.net:9443/
         id: 1_1062_portainer
+        method: newtab
       - title: Uptime Kuma
         description: Uptime Kuma Monitoring
         icon: https://static-00.iconduck.com/assets.00/uptime-kuma-icon-2048x1892-iigw6pmz.png

@@ -14,6 +14,7 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
+      stop_grace_period: 360s
       update_config:
         parallelism: 1
         delay: 360s

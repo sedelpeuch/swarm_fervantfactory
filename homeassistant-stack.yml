@@ -4,11 +4,13 @@ services:
   homeassistant:
     image: ghcr.io/home-assistant/home-assistant:stable
     ports:
-      - "8123:8123"  # Interface web
+      - "8123:8123"
     environment:
       - TZ=Europe/Paris
     volumes:
       - homeassistant_data:/config
+    depends_on:
+      - mariadb
     deploy:
       mode: replicated
       replicas: 1
@@ -19,7 +21,7 @@ services:
         delay: 360s
         order: start-first
         failure_action: rollback
-        monitor: 120s  # Surveille pendant 2 minutes après le déploiement
+        monitor: 120s
       rollback_config:
         parallelism: 1
         delay: 360s
@@ -29,6 +31,22 @@ services:
         constraints:
           - node.role == manager
 
+  mariadb:
+    image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: homeassistant
+      MYSQL_USER: hass
+      MYSQL_PASSWORD: hasspass
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    command: --wait_timeout=28800 --max_allowed_packet=64M
+    deploy:
+      restart_policy:
+        condition: on-failure
+
 volumes:
   homeassistant_data:
+    driver: local
+  mariadb_data:
     driver: local

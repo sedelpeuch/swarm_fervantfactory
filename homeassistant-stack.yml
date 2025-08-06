@@ -13,6 +13,7 @@ services:
     depends_on:
       - mariadb
     privileged: true
+    restart: on-failure
 
   mariadb:
     image: mariadb:10.11
@@ -24,6 +25,7 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     command: --wait_timeout=28800 --max_allowed_packet=64M
+    restart: on-failure
 
 volumes:
   homeassistant_data:

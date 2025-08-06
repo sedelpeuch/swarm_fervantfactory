@@ -32,8 +32,7 @@ services:
         constraints:
           - node.role == manager
     cap_add:
-      - CAP_SYS_ADMIN
-      - CAP_NET_ADMIN
+      - ALL
 
   mariadb:
     image: mariadb:10.11

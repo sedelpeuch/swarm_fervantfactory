@@ -9,6 +9,7 @@ services:
       - TZ=Europe/Paris
     volumes:
       - homeassistant_data:/config
+      - /dev/ttyUSB0:/dev/ttyUSB0:ro
     depends_on:
       - mariadb
     deploy:

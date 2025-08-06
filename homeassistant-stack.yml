@@ -10,7 +10,6 @@ services:
     volumes:
       - homeassistant_data:/config
       - /dev/ttyUSB0:/dev/ttyUSB0:ro
-    privileged: true
     depends_on:
       - mariadb
     deploy:
@@ -32,6 +31,9 @@ services:
       placement:
         constraints:
           - node.role == manager
+    cap_add:
+      - CAP_SYS_ADMIN
+      - CAP_NET_ADMIN
 
   mariadb:
     image: mariadb:10.11

@@ -12,27 +12,7 @@ services:
       - /dev/ttyUSB0:/dev/ttyUSB0:ro
     depends_on:
       - mariadb
-    deploy:
-      mode: replicated
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-      update_config:
-        parallelism: 1
-        delay: 360s
-        order: start-first
-        failure_action: rollback
-        monitor: 120s
-      rollback_config:
-        parallelism: 1
-        delay: 360s
-        order: start-first
-        failure_action: pause
-      placement:
-        constraints:
-          - node.role == manager
-    cap_add:
-      - ALL
+    privileged: true
 
   mariadb:
     image: mariadb:10.11
@@ -44,9 +24,6 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     command: --wait_timeout=28800 --max_allowed_packet=64M
-    deploy:
-      restart_policy:
-        condition: on-failure
 
 volumes:
   homeassistant_data:

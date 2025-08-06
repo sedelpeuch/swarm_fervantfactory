@@ -5,6 +5,7 @@ services:
     image: ghcr.io/home-assistant/home-assistant:stable
     ports:
       - "8123:8123"
+      - "50000-60001:50000-60001"
     environment:
       - TZ=Europe/Paris
     volumes:

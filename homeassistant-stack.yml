@@ -14,7 +14,6 @@ services:
       - mariadb
     privileged: true
     restart: on-failure
-    network_mode: host
 
   mariadb:
     image: mariadb:10.11

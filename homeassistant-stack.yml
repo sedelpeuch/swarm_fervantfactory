@@ -10,6 +10,7 @@ services:
     volumes:
       - homeassistant_data:/config
       - /dev/ttyUSB0:/dev/ttyUSB0:ro
+      - /var/run/dbus:/var/run/dbus:ro
     depends_on:
       - mariadb
     privileged: true

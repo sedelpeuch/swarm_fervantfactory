@@ -68,6 +68,11 @@ sections:
         icon: https://www.home-assistant.io/images/favicon-192x192.png
         url: http://ferventfactory.tailb5ad1.ts.net:8123/
         id: 1_1255_homeassistant
+      - title: n8n
+        description: Workflow automation
+        icon: https://n8n.io/favicon.ico
+        url: http://ferventfactory.tailb5ad1.ts.net:5678/
+        id: 2_1255_n8n
     icon: fas fa-laptop
   - name: Monitoring
     displayData:

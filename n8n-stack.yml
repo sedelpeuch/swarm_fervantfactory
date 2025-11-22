@@ -3,9 +3,10 @@ version: '3.8'
 services:
   n8n:
     image: n8nio/n8n:latest
-    network_mode: host
+    ports:
+      - "5678:5678"
     environment:
-      - N8N_HOST=0.0.0.0
+      - N8N_HOST=100.124.86.40
       - N8N_PORT=5678
       - N8N_PROTOCOL=http
       - NODE_ENV=production
@@ -13,7 +14,11 @@ services:
       - TZ=Europe/Paris
     volumes:
       - n8n_data:/home/node/.n8n
-    restart: unless-stopped
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
 
 volumes:
   n8n_data:

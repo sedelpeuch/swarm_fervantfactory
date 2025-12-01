@@ -73,6 +73,11 @@ sections:
         icon: https://n8n.io/favicon.ico
         url: http://ferventfactory.tailb5ad1.ts.net:5678/
         id: 2_1255_n8n
+      - title: n8n
+        description: Body Analysis
+        icon: https://cdn-icons-png.freepik.com/256/18595/18595729.png?semt=ais_white_label
+        url: http://ferventfactory.tailb5ad1.ts.net:8501/
+        id: 3_1255_bodyanalysis
     icon: fas fa-laptop
   - name: Monitoring
     displayData:

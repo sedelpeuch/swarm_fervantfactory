@@ -8,11 +8,13 @@ services:
       - "5173:5173"
     environment:
       - TZ=Europe/Paris
-      - DATA_DIR=/data
+      - DOLIBARR_URL=${DOLIBARR_URL}
+      - DOLIAPIKEY=${DOLIAPIKEY}
+      - APP_NAME=${APP_NAME}
+      - CURRENT_USER_ID=${CURRENT_USER_ID}
+      - DATA_DIR=${DATA_DIR}
     volumes:
       - dashboard_data:/data
-    env_file:
-      - .env
     deploy:
       replicas: 1
       restart_policy:

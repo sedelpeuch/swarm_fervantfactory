@@ -79,6 +79,11 @@ sections:
         icon: https://cdn-icons-png.freepik.com/256/18595/18595729.png?semt=ais_white_label
         url: http://192.168.1.29:8501/
         id: 3_1255_bodyanalysis
+      - title: Balthazar
+        description: Dolibarr dashboard
+        icon: https://www.dolibarr.org/medias/image/www.dolibarr.org/images/stories/dolibarr.png
+        url: http://192.168.1.29:5173/
+        id: 4_1255_balthazar
     icon: fas fa-laptop
   - name: Monitoring
     displayData:

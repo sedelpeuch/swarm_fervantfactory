@@ -96,13 +96,13 @@ sections:
         id: 0_1062_tailscale
       - title: Portainer
         description: Portainer Container Management
-        icon: https://www.portainer.io/favicon.ico
+        icon: https://192.168.1.29:9443/63c1259abd88a9d2cebc.svg
         url: https://192.168.1.29:9443/
         id: 1_1062_portainer
         method: newtab
       - title: Uptime Kuma
         description: Uptime Kuma Monitoring
-        icon: https://static-00.iconduck.com/assets.00/uptime-kuma-icon-2048x1892-iigw6pmz.png
+        icon: https://comptoir-du-libre.org/img/files/Softwares/Uptime%20Kuma/avatar/uk.png
         url: http://192.168.1.29:3001/
         id: 2_1062_uptimekuma
     icon: fas fa-network-wired
@@ -139,7 +139,7 @@ sections:
       - title: delpeuch.net
         description: My personal blog
         icon: >-
-          https://delpeuch.net/img/logo.webp
+          https://delpeuch.net/img/logo.svg
         url: https://delpeuch.net/
         id: 3_1155_delpeuchblog
   - name: Widgets

@@ -2,12 +2,12 @@ pageInfo:
   title: FervantFactory
   navLinks: []
 appConfig:
-  theme: night-bat
+  theme: nord
   layout: auto
   language: fr
   startingView: default
   statusCheck: false
-  defaultOpeningMethod: sametab
+  defaultOpeningMethod: newtab
   routingMode: hash
   hideComponents:
     hideHeading: false
@@ -57,6 +57,7 @@ sections:
       hideForGuests: false
       rows: 1
       cols: 1
+      cutToHeight: true
     items:
       - title: Dashy
         description: Dashboard
@@ -86,6 +87,7 @@ sections:
       hideForGuests: false
       rows: 1
       cols: 1
+      cutToHeight: true
     items:
       - title: Tailscale
         description: Tailscale VPN
@@ -109,6 +111,7 @@ sections:
       sortBy: alphabetical
       collapsed: false
       hideForGuests: false
+      cutToHeight: true
     items:
       - title: Daily Dev
         description: Dev news and articles
@@ -146,6 +149,7 @@ sections:
       hideForGuests: false
       rows: 1
       cols: 1
+      cutToHeight: true
     widgets:
       - type: clock
         options:

@@ -11,7 +11,13 @@ services:
       placement:
         constraints:
           - node.role == manager
+    networks:
+      - proxy
 
 volumes:
   nginx_conf:
     driver: local
+
+networks:
+  proxy:
+    external: true

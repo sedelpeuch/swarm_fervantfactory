@@ -1,6 +1,5 @@
 version: '3.8'
 
-
 services:
   dashy:
     image: lissy93/dashy:latest
@@ -8,7 +7,7 @@ services:
       - dashy_data:/app/public/data
       - ./conf.yml:/app/user-data/conf.yml
     ports:
-      - "8080:8080"
+      - "1313:8080"
     environment:
       - CONF_HASH=697bcd0f2de0c863a4da1a790f032f3d83721a8c65da459877a52aabf1831f42
     deploy:
@@ -27,6 +26,12 @@ services:
         delay: 360s
         order: start-first
         failure_action: pause
+    networks:
+      - proxy
 
 volumes:
   dashy_data:
+
+networks:
+  proxy:
+    external: true

@@ -6,12 +6,13 @@ services:
     ports:
       - "5678:5678"
     environment:
-      - N8N_HOST=100.124.86.40
       - N8N_PORT=5678
       - N8N_PROTOCOL=http
       - NODE_ENV=production
       - GENERIC_TIMEZONE=Europe/Paris
       - TZ=Europe/Paris
+      - N8N_SECURE_COOKIE=false
+      - WEBHOOK_URL=http://ferventfactory.tailb5ad1.ts.net:5678/
     volumes:
       - n8n_data:/home/node/.n8n
     deploy:

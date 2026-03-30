@@ -8,7 +8,7 @@ services:
       - dashy_data:/app/public/data
       - ./conf.yml:/app/user-data/conf.yml
     ports:
-      - "80:8080"
+      - "8080:8080"
     environment:
       - CONF_HASH=697bcd0f2de0c863a4da1a790f032f3d83721a8c65da459877a52aabf1831f42
     deploy:

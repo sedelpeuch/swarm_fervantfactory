@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   dolibarr-dashboard:
@@ -32,6 +32,7 @@ services:
           - node.role == manager
     networks:
       - dashboard_network
+      - proxy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:41587/docs"]
       interval: 30s
@@ -48,3 +49,5 @@ networks:
     driver: overlay
     driver_opts:
       com.docker.network.driver.overlay.vxlan_list: 4789
+  proxy:
+    external: true

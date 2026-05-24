@@ -110,6 +110,11 @@ sections:
         icon: https://comptoir-du-libre.org/img/files/Softwares/Uptime%20Kuma/avatar/uk.png
         url: http://192.168.1.29:3001/
         id: 2_1062_uptimekuma
+      - title: Umami
+        description: Analyseur de trafic web
+        icon: https://umami.is/apple-touch-icon.png
+        url: https://cloud.umami.is/analytics/eu/websites/a249df0c-9eb1-4242-adf8-084b8163ae7d
+        id: 3_1062_umami
     icon: fas fa-network-wired
   - name: Devlinks
     displayData:

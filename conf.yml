@@ -167,3 +167,9 @@ sections:
           useProxy: true
           title: Uptime Kuma
         id: 1_727_uptimekuma
+      - type: rss-feed
+        options:
+          rssUrl: https://delpeuch.net/blog/rss
+          title: delpeuch.net
+          limit: 10
+        id: 2_727_rss

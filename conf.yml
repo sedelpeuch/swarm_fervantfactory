@@ -84,6 +84,11 @@ sections:
         icon: https://www.dolibarr.org/medias/image/www.dolibarr.org/images/stories/dolibarr.png
         url: http://192.168.1.29:5173/
         id: 4_1255_balthazar
+      - title: Calibre-Web
+        description: Ebook library
+        icon: https://raw.githubusercontent.com/janeczku/calibre-web/master/cps/static/favicon.ico
+        url: http://192.168.1.29:8083/
+        id: 5_1255_calibreweb
     icon: fas fa-laptop
   - name: Monitoring
     displayData:

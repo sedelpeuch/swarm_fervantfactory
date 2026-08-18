@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  calibre-web-init:
+    image: curlimages/curl:latest
+    user: "0:0"
+    volumes:
+      - calibre_books:/books
+      - calibre_config:/config
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >
+        if [ ! -f /books/metadata.db ]; then
+          echo "Aucune bibliotheque Calibre trouvee, telechargement de la base d'exemple...";
+          curl -fsSL -o /books/metadata.db https://github.com/janeczku/calibre-web/raw/master/library/metadata.db;
+        else
+          echo "Bibliotheque Calibre existante detectee, rien a faire.";
+        fi;
+        mkdir -p /config/bin;
+        if [ ! -f /config/bin/kepubify ]; then
+          echo "Telechargement du binaire kepubify...";
+          curl -fsSL -o /config/bin/kepubify https://github.com/pgaskin/kepubify/releases/latest/download/kepubify-linux-64bit;
+          chmod +x /config/bin/kepubify;
+        else
+          echo "Binaire kepubify deja present.";
+        fi;
+        chown -R 1000:1000 /books /config
+    deploy:
+      restart_policy:
+        condition: none
+      placement:
+        constraints:
+          - node.role == manager
+
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web:latest
+    ports:
+      - "8083:8083"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - calibre_config:/config
+      - calibre_books:/books
+    depends_on:
+      - calibre-web-init
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      update_config:
+        parallelism: 1
+        delay: 360s
+        order: start-first
+        failure_action: rollback
+        monitor: 120s  # Surveille pendant 2 minutes après le déploiement
+      rollback_config:
+        parallelism: 1
+        delay: 360s
+        order: start-first
+        failure_action: pause
+    networks:
+      - proxy
+
+volumes:
+  calibre_config:
+    driver: local
+  calibre_books:
+    driver: local
+
+networks:
+  proxy:
+    external: true

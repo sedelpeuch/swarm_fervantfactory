@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v3.1
+    command:
+      - --providers.docker.swarmMode=true
+      - --providers.docker.exposedByDefault=false
+      - --providers.docker.network=proxy
+      - --entrypoints.web.address=:80
+    ports:
+      - "8081:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      restart_policy:
+        condition: on-failure
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

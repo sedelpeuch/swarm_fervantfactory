@@ -61,6 +61,11 @@ services:
         delay: 360s
         order: start-first
         failure_action: pause
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.calibre.rule=Host(`calibre.fervantfactory.delpeuch.net`)
+        - traefik.http.routers.calibre.entrypoints=web
+        - traefik.http.services.calibre.loadbalancer.server.port=8083
     networks:
       - proxy
 

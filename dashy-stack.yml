@@ -9,7 +9,7 @@ services:
     ports:
       - "1313:8080"
     environment:
-      - CONF_HASH=5d9cd50309748786dac6fdcba2a13814035b217f5e45735aba87508560933453
+      - CONF_HASH=f1a50a54ecd24690ed4588ffb3f4f97f8a1abd836dd5c2d8e88d5de322543d57
     deploy:
       mode: replicated
       replicas: 1

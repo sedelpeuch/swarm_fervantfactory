@@ -62,7 +62,7 @@ sections:
       - title: Dashy
         description: Dashboard
         icon: https://dashy.to/img/dashy.png
-        url: http://192.168.1.29/
+        url: http://dashy.fervantfactory.delpeuch.net/
         id: 0_1255_dashy
       - title: Home Assistant
         description: Home automation platform
@@ -82,12 +82,12 @@ sections:
       - title: Balthazar
         description: Dolibarr dashboard
         icon: https://www.dolibarr.org/medias/image/www.dolibarr.org/images/stories/dolibarr.png
-        url: http://192.168.1.29:5173/
+        url: http://balthazar-vite.fervantfactory.delpeuch.net/
         id: 4_1255_balthazar
       - title: Calibre-Web
         description: Ebook library
         icon: https://raw.githubusercontent.com/janeczku/calibre-web/master/cps/static/favicon.ico
-        url: http://192.168.1.29:8083/
+        url: http://calibre.fervantfactory.delpeuch.net/
         id: 5_1255_calibreweb
     icon: fas fa-laptop
   - name: Monitoring
@@ -113,13 +113,19 @@ sections:
       - title: Uptime Kuma
         description: Uptime Kuma Monitoring
         icon: https://comptoir-du-libre.org/img/files/Softwares/Uptime%20Kuma/avatar/uk.png
-        url: http://192.168.1.29:3001/
+        url: http://kuma.fervantfactory.delpeuch.net/
         id: 2_1062_uptimekuma
       - title: Umami
         description: Analyseur de trafic web
         icon: https://umami.is/apple-touch-icon.png
         url: https://cloud.umami.is/analytics/eu/websites/a249df0c-9eb1-4242-adf8-084b8163ae7d
         id: 3_1062_umami
+      - title: Traefik
+        description: Reverse proxy dashboard
+        icon: https://raw.githubusercontent.com/traefik/traefik/master/docs/content/assets/img/traefik.logo.png
+        url: http://100.124.86.40:8080/dashboard/
+        id: 4_1062_traefik
+        method: newtab
     icon: fas fa-network-wired
   - name: Devlinks
     displayData:

@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@600;700&family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --primary: #eae4d8 !important;
+  --background: #15181b !important;
+  --background-darker: #0b0d0f !important;
+  --curve-factor: 6px !important;
+  --curve-factor-navbar: 6px !important;
+  --dimming-factor: 0.75 !important;
+
+  --heading-text-color: #eae4d8 !important;
+
+  --nav-link-text-color: #eae4d8 !important;
+  --nav-link-background-color: #1c2023 !important;
+  --nav-link-text-color-hover: #15181b !important;
+  --nav-link-background-color-hover: #dd9257 !important;
+  --nav-link-border-color: #2b3237 !important;
+  --nav-link-border-color-hover: #dd9257 !important;
+
+  --search-container-background: #0f1214 !important;
+  --search-field-background: #1c2023 !important;
+
+  --settings-background: #0f1214 !important;
+  --settings-text-color: #eae4d8 !important;
+
+  --footer-text-color: #a9a190 !important;
+  --footer-text-color-link: #dd9257 !important;
+
+  --item-text-color: #eae4d8 !important;
+  --item-group-outer-background: #0b0d0f !important;
+  --item-group-background: #0b0d0f !important;
+  --item-group-heading-text-color: #eae4d8 !important;
+  --item-group-heading-text-color-hover: #dd9257 !important;
+
+  --scroll-bar-color: #3a434a !important;
+  --scroll-bar-background: #0f1214 !important;
+
+  --highlight-background: #dd9257 !important;
+  --highlight-color: #15181b !important;
+
+  --toast-background: #1c2023 !important;
+  --toast-color: #eae4d8 !important;
+
+  --side-bar-background: #0f1214 !important;
+  --side-bar-color: #eae4d8 !important;
+
+  --context-menu-color: #eae4d8 !important;
+  --context-menu-background: #1c2023 !important;
+  --context-menu-secondary-color: #a9a190 !important;
+
+  --item-shadow: 0 6px 16px -10px rgba(0, 0, 0, 0.7) !important;
+  --item-hover-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.8) !important;
+  --item-group-shadow: 0 14px 30px -22px rgba(0, 0, 0, 0.7) !important;
+
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif !important;
+  --font-headings: 'Big Shoulders Text', sans-serif !important;
+  --font-monospace: 'IBM Plex Mono', ui-monospace, Menlo, monospace !important;
+}
+
+/* #dashy peint son propre fond opaque (couleur + motif SVG) par-dessus body/#app :
+   il faut cibler cet element precis, sinon la grille reste invisible dessous */
+#dashy {
+  background-color: #15181b !important;
+  background-image:
+    linear-gradient(#262b30 1px, transparent 1px),
+    linear-gradient(90deg, #262b30 1px, transparent 1px) !important;
+  background-size: 48px 48px !important;
+}
+
+body {
+  font-family: var(--font-body) !important;
+}
+
+.home {
+  max-width: 1400px !important;
+  margin: 1.5rem auto 0 !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  padding-top: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+.item-group-container {
+  gap: 1.5rem 1.5rem !important;
+}
+
+/* La barre d'options (wrench) etait vide et flottait sous le header : on la
+   masque et on reconstruit tout (titre + sous-titre + statut) dans le
+   <header> d'origine, qui expose deja un vrai slot de sous-titre. */
+.settings-outer {
+  display: none !important;
+}
+
+header {
+  position: relative !important;
+  max-width: 1400px !important;
+  margin: 1.5rem auto 0 !important;
+  padding: 1.25rem 2rem !important;
+  background: var(--background-darker) !important;
+  border: 1px solid #2b3237 !important;
+  border-radius: var(--curve-factor) !important;
+}
+header h1 {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+header h1::before,
+header h1::after {
+  font-family: 'Big Shoulders Text', sans-serif !important;
+  font-size: 2.8rem !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+}
+header h1::before {
+  content: "Fervant" !important;
+  color: #eae4d8 !important;
+}
+header h1::after {
+  content: "Factory" !important;
+  color: #dd9257 !important;
+}
+header .subtitle {
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #a9a190 !important;
+}
+
+h1, h2, h3, .item-group-heading, .section-heading, .home-title, .page-title {
+  font-family: 'Big Shoulders Text', sans-serif !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+}
+
+/* Sections plus compactes (moins "grosses") */
+.section-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  padding: 0.6rem 0.9rem !important;
+}
+.section-header h3 {
+  font-size: 1rem !important;
+  margin: 0 !important;
+}
+
+/* La carte de section (.collapsable) transmettait la teinte de categorie a
+   tout son cadre (padding 5px) en plus du bloc de contenu deja opaque en
+   dessous -> effet "boite dans la boite". On neutralise le cadre exterieur
+   et on reserve la teinte uniquement a la bande d'en-tete. */
+.collapsable {
+  position: relative !important;
+  background: var(--item-group-outer-background) !important;
+  padding: 0 !important;
+  margin: 0.4rem !important;
+}
+.section-header {
+  background: transparent !important;
+}
+.section_domotique .section-header { background: rgba(212, 146, 63, 0.16) !important; }
+.section_projets .section-header { background: rgba(201, 122, 61, 0.16) !important; }
+.section_loisirs .section-header { background: rgba(138, 154, 74, 0.16) !important; }
+.section_monitoring .section-header { background: rgba(79, 138, 139, 0.16) !important; }
+.section_devlinks .section-header { background: rgba(92, 122, 145, 0.16) !important; }
+.collapsable::before,
+.collapsable::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0.5rem !important;
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+  background: #3a434a !important;
+  z-index: 2 !important;
+}
+.collapsable::before { left: 0.5rem !important; }
+.collapsable::after { right: 0.5rem !important; }
+
+/* Pastille de tag type P&ID par categorie, avant l'icone de section */
+.section-header::before {
+  order: -1 !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03em !important;
+  color: #15181b !important;
+  padding: 2px 7px !important;
+  border-radius: 3px !important;
+  flex-shrink: 0 !important;
+}
+.section_domotique .section-header::before { content: "HA-01" !important; background: #d4923f !important; }
+.section_projets .section-header::before { content: "PRJ-02" !important; background: #c97a3d !important; }
+.section_loisirs .section-header::before { content: "LSR-03" !important; background: #8a9a4a !important; }
+.section_monitoring .section-header::before { content: "MON-04" !important; background: #4f8a8b !important; }
+.section_devlinks .section-header::before { content: "DEV-05" !important; background: #5c7a91 !important; }
+/* Les items Dashy ont par defaut leur propre fond teinte + marge, ce qui cree
+   des "cartes dans la carte" bien visibles a l'ecran. On les rend plats,
+   collés les uns aux autres, separes par un simple filet, pour qu'ils se
+   fondent dans le fond de la section (comme la maquette). */
+.content-inner {
+  padding: 0 !important;
+}
+.item-wrapper {
+  border-top: 1px solid #23282c !important;
+}
+.item-wrapper:first-child {
+  border-top: none !important;
+}
+.item-wrapper .item {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0.6rem 0.9rem !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  width: 100% !important;
+}
+.item-wrapper .item:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+/* Carre d'icone sombre + glyphe FontAwesome teinte par categorie (comme la maquette) */
+.item-icon.wrapper-large {
+  width: 2.1rem !important;
+  min-width: 2.1rem !important;
+  max-width: 2.1rem !important;
+  height: 2.1rem !important;
+  min-height: 2.1rem !important;
+  max-height: 2.1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+.item-icon.wrapper-large .tile-icon,
+.item-icon.wrapper-large i {
+  max-width: 1.2rem !important;
+  max-height: 1.2rem !important;
+  font-size: 1.1rem !important;
+}
+.section_domotique .item-icon i { color: #d4923f !important; }
+.section_projets .item-icon i { color: #c97a3d !important; }
+.section_loisirs .item-icon i { color: #8a9a4a !important; }
+.section_monitoring .item-icon i { color: #4f8a8b !important; }
+.section_devlinks .item-icon i { color: #5c7a91 !important; }
+.tile-title .text {
+  font-size: 0.92rem !important;
+}
+.tile-title .description {
+  font-size: 0.78rem !important;
+}
+
+/* Points de statut (ping) : la version Dashy par defaut est un gros disque
+   sature (vert nectrite/rose flash/gris quasi invisible). On les reduit et
+   on les rattache a la palette acier/cuivre pour un rendu plus discret et
+   coherent avec le reste du tableau de bord. */
+.indicators-container .dot {
+  width: 7px !important;
+  height: 7px !important;
+}
+.indicators-container .dot > span,
+.indicators-container .dot > span span,
+.indicators-container .dot > span span::after {
+  width: 7px !important;
+  height: 7px !important;
+}
+.dot.dot-green {
+  background-color: #7fae54 !important;
+  box-shadow: 0 0 5px 0.5px rgba(127, 174, 84, 0.55) !important;
+}
+.dot.dot-green span,
+.dot.dot-green span::after {
+  background-color: #7fae54 !important;
+  opacity: 0.35 !important;
+}
+.dot.dot-red {
+  background-color: var(--danger-500) !important;
+  box-shadow: 0 0 5px 0.5px rgba(179, 80, 63, 0.55) !important;
+}
+.dot.dot-red span,
+.dot.dot-red span::after {
+  background-color: var(--danger-500) !important;
+  opacity: 0.35 !important;
+}
+.dot.dot-yellow {
+  background-color: var(--amber-400) !important;
+  box-shadow: 0 0 5px 0.5px rgba(234, 162, 63, 0.55) !important;
+}
+.dot.dot-yellow span,
+.dot.dot-yellow span::after {
+  background-color: var(--amber-400) !important;
+  opacity: 0.35 !important;
+}
+.dot.dot-grey {
+  background-color: var(--steel-600) !important;
+  box-shadow: none !important;
+}
+.dot.dot-grey span,
+.dot.dot-grey span::after {
+  background-color: var(--steel-600) !important;
+  opacity: 0.3 !important;
+}
+
+/* Desactive visuellement le repli des sections (on garde toujours ouvert) */
+.collapse-toggle {
+  pointer-events: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+}

@@ -1,12 +1,14 @@
 pageInfo:
   title: FervantFactory
+  description: Salle de contrôle homelab
   navLinks: []
 appConfig:
-  theme: nord
+  theme: fervantfactory
+  externalStyleSheet: ['/theme.css']
   layout: auto
   language: fr
   startingView: default
-  statusCheck: false
+  statusCheck: true
   defaultOpeningMethod: newtab
   routingMode: hash
   hideComponents:
@@ -16,7 +18,7 @@ appConfig:
     hideSettings: false
     hideFooter: true
   iconSize: large
-  statusCheckInterval: 0
+  statusCheckInterval: 300
   faviconApi: allesedv
   enableMultiTasking: false
   widgetsAlwaysUseProxy: false
@@ -50,7 +52,7 @@ appConfig:
   enableErrorReporting: false
   colCount: 3
 sections:
-  - name: Applications
+  - name: Domotique
     displayData:
       sortBy: alphabetical
       collapsed: false
@@ -58,38 +60,56 @@ sections:
       rows: 1
       cols: 1
       cutToHeight: true
+      color: 'rgba(212,146,63,0.14)'
     items:
-      - title: Dashy
-        description: Dashboard
-        icon: https://dashy.to/img/dashy.png
-        url: http://dashy.fervantfactory.delpeuch.net/
-        id: 0_1255_dashy
       - title: Home Assistant
         description: Home automation platform
-        icon: https://www.home-assistant.io/images/favicon-192x192.png
+        icon: fas fa-house
         url: http://192.168.1.29:8123/
-        id: 1_1255_homeassistant
+        id: 0_2001_homeassistant
       - title: n8n
         description: Workflow automation
-        icon: https://n8n.io/favicon.ico
+        icon: fas fa-project-diagram
         url: http://192.168.1.29:5678/
-        id: 2_1255_n8n
-      - title: Body Analysis
-        description: Dashboard for body analysis
-        icon: https://cdn-icons-png.freepik.com/256/18595/18595729.png?semt=ais_white_label
-        url: http://192.168.1.29:8501/
-        id: 3_1255_bodyanalysis
+        id: 1_2001_n8n
+    icon: fas fa-house
+  - name: Projets
+    displayData:
+      sortBy: alphabetical
+      collapsed: false
+      hideForGuests: false
+      rows: 1
+      cols: 1
+      cutToHeight: true
+      color: 'rgba(201,122,61,0.14)'
+    items:
       - title: Balthazar
         description: Dolibarr dashboard
-        icon: https://www.dolibarr.org/medias/image/www.dolibarr.org/images/stories/dolibarr.png
+        icon: fas fa-chart-line
         url: http://balthazar-vite.fervantfactory.delpeuch.net/
-        id: 4_1255_balthazar
+        id: 0_2002_balthazar
+      - title: Body Analysis
+        description: Dashboard for body analysis
+        icon: fas fa-heartbeat
+        url: http://192.168.1.29:8501/
+        id: 1_2002_bodyanalysis
+    icon: fas fa-drafting-compass
+  - name: Loisirs
+    displayData:
+      sortBy: alphabetical
+      collapsed: false
+      hideForGuests: false
+      rows: 1
+      cols: 1
+      cutToHeight: true
+      color: 'rgba(138,154,74,0.14)'
+    items:
       - title: Calibre-Web
         description: Ebook library
-        icon: https://raw.githubusercontent.com/janeczku/calibre-web/master/cps/static/favicon.ico
+        icon: fas fa-book-open
         url: http://calibre.fervantfactory.delpeuch.net/
-        id: 5_1255_calibreweb
-    icon: fas fa-laptop
+        id: 0_2003_calibreweb
+    icon: fas fa-book-open
   - name: Monitoring
     displayData:
       sortBy: alphabetical
@@ -98,34 +118,37 @@ sections:
       rows: 1
       cols: 1
       cutToHeight: true
+      color: 'rgba(79,138,139,0.14)'
     items:
       - title: Tailscale
         description: Tailscale VPN
-        icon: https://cdn2.steamgriddb.com/icon/7a2af65d5b4d03e85908eaddc6fbdad9.png
+        icon: fas fa-share-alt
         url: https://tailscale.com/admin/machines
-        id: 0_1062_tailscale
+        id: 0_2004_tailscale
+        statusCheck: false
       - title: Portainer
         description: Portainer Container Management
-        icon: https://192.168.1.29:9443/63c1259abd88a9d2cebc.svg
+        icon: fas fa-boxes
         url: https://192.168.1.29:9443/
-        id: 1_1062_portainer
-        method: newtab
+        id: 1_2004_portainer
+        target: newtab
       - title: Uptime Kuma
         description: Uptime Kuma Monitoring
-        icon: https://comptoir-du-libre.org/img/files/Softwares/Uptime%20Kuma/avatar/uk.png
+        icon: fas fa-wave-square
         url: http://kuma.fervantfactory.delpeuch.net/
-        id: 2_1062_uptimekuma
+        id: 2_2004_uptimekuma
       - title: Umami
         description: Analyseur de trafic web
-        icon: https://umami.is/apple-touch-icon.png
+        icon: fas fa-chart-bar
         url: https://cloud.umami.is/analytics/eu/websites/a249df0c-9eb1-4242-adf8-084b8163ae7d
-        id: 3_1062_umami
+        id: 3_2004_umami
+        statusCheck: false
       - title: Traefik
         description: Reverse proxy dashboard
-        icon: https://raw.githubusercontent.com/traefik/traefik/master/docs/content/assets/img/traefik.logo.png
+        icon: fas fa-route
         url: http://100.124.86.40:8080/dashboard/
-        id: 4_1062_traefik
-        method: newtab
+        id: 4_2004_traefik
+        target: newtab
     icon: fas fa-network-wired
   - name: Devlinks
     displayData:
@@ -136,51 +159,30 @@ sections:
     items:
       - title: Daily Dev
         description: Dev news and articles
-        icon: https://play-lh.googleusercontent.com/ZejAkIHFw3knpmq77o6jJd9yDmzoqWOU-GmHZDIpxMjm8V30_WbR06VASibWPSxjc-W1
+        icon: fas fa-rss
         url: https://app.daily.dev/
         id: 0_1155_devlinks
+        statusCheck: false
       - title: Refactoring Guru
         description: Design and code refactoring guidelines
-        icon: https://refactoring.guru/images/content-public/logos/logo-new.png?id=97d554614702483f31e38b32e82d8e34
+        icon: fas fa-wrench
         url: https://refactoring.guru/fr/design-patterns
+        statusCheck: false
       - title: GitHub Next
         description: GitHub's future features
-        icon: https://githubnext.com/assets/images/next-octocat.svg
+        icon: fab fa-github
         url: https://githubnext.com/
         id: 1_1155_githubnext
+        statusCheck: false
       - title: GitHub Blog
         description: GitHub's blog
         icon: https://logo-marque.com/wp-content/uploads/2020/12/GitHub-Embleme.png
         url: https://github.blog/latest/
         id: 2_1155_githubblog
+        statusCheck: false
       - title: delpeuch.net
         description: My personal blog
         icon: https://delpeuch.net/img/logo.svg
         url: https://delpeuch.net/
+        statusCheck: false
         id: 3_1155_delpeuchblog
-  - name: Widgets
-    displayData:
-      sortBy: alphabetical
-      collapsed: false
-      hideForGuests: false
-      rows: 1
-      cols: 1
-      cutToHeight: true
-    widgets:
-      - type: clock
-        options:
-          timeZone: Europe/Paris
-          format: fr-FR
-        id: 0_727_clock
-      - type: uptime-kuma
-        options:
-          url: http://100.124.86.40:3001/metrics
-          useProxy: true
-          title: Uptime Kuma
-        id: 1_727_uptimekuma
-      - type: rss-feed
-        options:
-          rssUrl: https://delpeuch.net/blog/rss
-          title: delpeuch.net
-          limit: 10
-        id: 2_727_rss

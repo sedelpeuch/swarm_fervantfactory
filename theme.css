@@ -72,17 +72,17 @@ body {
 }
 
 .home {
-  max-width: 1400px !important;
-  margin: 1.5rem auto 0 !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
+  max-width: 1180px !important;
+  margin: 1.25rem auto 0 !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
   padding-top: 0 !important;
   background: transparent !important;
   background-image: none !important;
 }
 
 .item-group-container {
-  gap: 1.5rem 1.5rem !important;
+  gap: 1.15rem 1.15rem !important;
 }
 
 /* La barre d'options (wrench) etait vide et flottait sous le header : on la
@@ -94,9 +94,9 @@ body {
 
 header {
   position: relative !important;
-  max-width: 1400px !important;
-  margin: 1.5rem auto 0 !important;
-  padding: 1.25rem 2rem !important;
+  max-width: 1180px !important;
+  margin: 1.25rem auto 0 !important;
+  padding: 0.9rem 1.5rem !important;
   background: var(--background-darker) !important;
   border: 1px solid #2b3237 !important;
   border-radius: var(--curve-factor) !important;
@@ -108,7 +108,7 @@ header h1 {
 header h1::before,
 header h1::after {
   font-family: 'Big Shoulders Text', sans-serif !important;
-  font-size: 2.8rem !important;
+  font-size: 2.2rem !important;
   line-height: 1.05 !important;
   letter-spacing: 0.02em !important;
   text-transform: uppercase !important;
@@ -155,7 +155,7 @@ h1, h2, h3, .item-group-heading, .section-heading, .home-title, .page-title {
   position: relative !important;
   background: var(--item-group-outer-background) !important;
   padding: 0 !important;
-  margin: 0.4rem !important;
+  margin: 0 !important;
 }
 .section-header {
   background: transparent !important;
@@ -212,12 +212,25 @@ h1, h2, h3, .item-group-heading, .section-heading, .home-title, .page-title {
 .item-wrapper .item {
   background: transparent !important;
   margin: 0 !important;
-  padding: 0.6rem 0.9rem !important;
+  padding: 0.55rem 0.9rem !important;
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   outline: none !important;
   width: 100% !important;
+}
+.item-wrapper .item {
+  position: relative !important;
+}
+/* Le point de statut Dashy est cale en haut a droite (top:0) quel que soit
+   le nombre de lignes de la description, ce qui le decale visuellement de
+   l'icone et du texte (qui eux sont centres verticalement). On le recentre
+   sur toute la hauteur de la ligne. */
+.item-wrapper .item .indicators-container {
+  top: 50% !important;
+  bottom: auto !important;
+  right: 0.9rem !important;
+  transform: translateY(-50%) !important;
 }
 .item-wrapper .item:hover {
   background: rgba(255, 255, 255, 0.04) !important;

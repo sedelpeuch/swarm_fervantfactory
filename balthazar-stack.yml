@@ -34,9 +34,11 @@ services:
         - traefik.enable=true
         - traefik.http.routers.balthazar.rule=Host(`balthazar.fervantfactory.delpeuch.net`)
         - traefik.http.routers.balthazar.entrypoints=web
+        - traefik.http.routers.balthazar.service=balthazar
         - traefik.http.services.balthazar.loadbalancer.server.port=41587
         - traefik.http.routers.balthazar-vite.rule=Host(`balthazar-vite.fervantfactory.delpeuch.net`)
         - traefik.http.routers.balthazar-vite.entrypoints=web
+        - traefik.http.routers.balthazar-vite.service=balthazar-vite
         - traefik.http.services.balthazar-vite.loadbalancer.server.port=5173
     networks:
       - dashboard_network

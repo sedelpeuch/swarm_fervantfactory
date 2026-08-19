@@ -21,6 +21,12 @@ services:
           - node.role == manager
       restart_policy:
         condition: on-failure
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.traefik.rule=Host(`traefik.fervantfactory.delpeuch.net`)
+        - traefik.http.routers.traefik.entrypoints=web
+        - traefik.http.routers.traefik.service=api@internal
+        - traefik.http.services.traefik.loadbalancer.server.port=8080
     networks:
       - proxy
 

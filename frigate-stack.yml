@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  frigate:
+    image: ghcr.io/blakeblackshear/frigate:stable
+    privileged: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/arm/frigate/config:/config
+      - ./frigate-config.yaml:/config/config.yaml
+      - /var/arm/frigate/storage:/media/frigate
+      - /dev/dri:/dev/dri
+      - type: tmpfs
+        target: /tmp/cache
+        tmpfs:
+          size: 100000000
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+          size: 1000000000
+    ports:
+      - "8554:8554"
+      - "8555:8555/tcp"
+      - "8555:8555/udp"
+      - "5000:5000"
+    environment:
+      FRIGATE_RTSP_PASSWORD: "admin"
+    networks:
+      - proxy
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.frigate.rule=Host(`frigate.local.yourdomain.com`)"
+        - "traefik.http.routers.frigate.entrypoints=websecure"
+        - "traefik.http.routers.frigate.tls=true"
+        - "traefik.http.services.frigate.loadbalancer.server.port=5000"
+
+networks:
+  proxy:
+    external: true

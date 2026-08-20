@@ -72,6 +72,11 @@ sections:
         icon: fas fa-project-diagram
         url: http://192.168.1.29:5678/
         id: 1_2001_n8n
+      - title: Frigate
+        description: NVR et détection vidéo
+        icon: fas fa-video
+        url: http://frigate.fervantfactory.delpeuch.net/
+        id: 2_2001_frigate
     icon: fas fa-house
   - name: Projets
     displayData:

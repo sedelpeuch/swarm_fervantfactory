@@ -6,9 +6,9 @@ services:
     privileged: true
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /var/arm/frigate/config:/config
+      - frigate_config:/config
       - ./frigate-config.yaml:/config/config.yaml
-      - /var/arm/frigate/storage:/media/frigate
+      - frigate_storage:/media/frigate
       - /dev/dri:/dev/dri
       - type: tmpfs
         target: /tmp/cache
@@ -39,6 +39,12 @@ services:
         - "traefik.http.routers.frigate.entrypoints=websecure"
         - "traefik.http.routers.frigate.tls=true"
         - "traefik.http.services.frigate.loadbalancer.server.port=5000"
+
+volumes:
+  frigate_config:
+    driver: local
+  frigate_storage:
+    driver: local
 
 networks:
   proxy:

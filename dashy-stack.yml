@@ -30,7 +30,8 @@ services:
       labels:
         - traefik.enable=true
         - traefik.http.routers.dashy.rule=Host(`dashy.fervantfactory.delpeuch.net`)
-        - traefik.http.routers.dashy.entrypoints=web
+        - traefik.http.routers.dashy.entrypoints=websecure
+        - traefik.http.routers.dashy.tls.certresolver=gandi
         - traefik.http.services.dashy.loadbalancer.server.port=8080
     networks:
       - proxy

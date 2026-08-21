@@ -8,19 +8,30 @@ services:
       - --providers.swarm.exposedByDefault=false
       - --providers.swarm.network=proxy
       - --entrypoints.web.address=:80
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entrypoints.web.http.redirections.entrypoint.scheme=https
+      - --entrypoints.websecure.address=:443
+      - --certificatesresolvers.gandi.acme.email=sebastien@delpeuch.net
+      - --certificatesresolvers.gandi.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.gandi.acme.dnschallenge.provider=gandiv5
       - --api.dashboard=true
-      - --api.insecure=true
+      - --api.insecure=false
     ports:
       - target: 80
         published: 80
         protocol: tcp
         mode: host
-      - target: 8080
-        published: 8080
+      - target: 443
+        published: 443
         protocol: tcp
         mode: host
+    environment:
+      - GANDIV5_PERSONAL_ACCESS_TOKEN_FILE=/run/secrets/GANDI_PAT
+    secrets:
+      - GANDI_PAT
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_certs:/letsencrypt
     deploy:
       placement:
         constraints:
@@ -30,11 +41,20 @@ services:
       labels:
         - traefik.enable=true
         - traefik.http.routers.traefik.rule=Host(`traefik.fervantfactory.delpeuch.net`)
-        - traefik.http.routers.traefik.entrypoints=web
+        - traefik.http.routers.traefik.entrypoints=websecure
+        - traefik.http.routers.traefik.tls.certresolver=gandi
         - traefik.http.routers.traefik.service=api@internal
         - traefik.http.services.traefik.loadbalancer.server.port=8080
     networks:
       - proxy
+
+volumes:
+  traefik_certs:
+    driver: local
+
+secrets:
+  GANDI_PAT:
+    external: true
 
 networks:
   proxy:

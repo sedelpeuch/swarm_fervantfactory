@@ -1,0 +1,15 @@
+http:
+  routers:
+    homeassistant:
+      rule: "Host(`ha.fervantfactory.delpeuch.net`)"
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: gandi
+      service: homeassistant
+
+  services:
+    homeassistant:
+      loadBalancer:
+        servers:
+          - url: "http://host.docker.internal:8123"

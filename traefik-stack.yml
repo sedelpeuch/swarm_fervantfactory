@@ -14,6 +14,8 @@ services:
       - --certificatesresolvers.gandi.acme.email=sebastien@delpeuch.net
       - --certificatesresolvers.gandi.acme.storage=/letsencrypt/acme.json
       - --certificatesresolvers.gandi.acme.dnschallenge.provider=gandiv5
+      - --providers.file.directory=/etc/traefik/dynamic
+      - --providers.file.watch=true
       - --api.dashboard=true
       - --api.insecure=false
     ports:
@@ -29,9 +31,12 @@ services:
       - GANDIV5_PERSONAL_ACCESS_TOKEN_FILE=/run/secrets/GANDI_PAT
     secrets:
       - GANDI_PAT
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - traefik_certs:/letsencrypt
+      - ./traefik-dynamic.yml:/etc/traefik/dynamic/dynamic.yml:ro
     deploy:
       placement:
         constraints:

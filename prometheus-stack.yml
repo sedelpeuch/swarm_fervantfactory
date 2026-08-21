@@ -61,44 +61,12 @@ services:
     networks:
       - monitoring
 
-  grafana:
-    image: grafana/grafana:latest
-    environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD__FILE=/run/secrets/GRAFANA_ADMIN_PASSWORD
-    secrets:
-      - GRAFANA_ADMIN_PASSWORD
-    volumes:
-      - grafana_data:/var/lib/grafana
-      - ./grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml:ro
-    deploy:
-      placement:
-        constraints:
-          - node.role == manager
-      restart_policy:
-        condition: on-failure
-      labels:
-        - traefik.enable=true
-        - traefik.http.routers.grafana.rule=Host(`grafana.fervantfactory.delpeuch.net`)
-        - traefik.http.routers.grafana.entrypoints=websecure
-        - traefik.http.routers.grafana.tls.certresolver=gandi
-        - traefik.http.services.grafana.loadbalancer.server.port=3000
-    networks:
-      - monitoring
-      - proxy
-
 volumes:
   prometheus_data:
     driver: local
-  grafana_data:
-    driver: local
-
-secrets:
-  GRAFANA_ADMIN_PASSWORD:
-    external: true
 
 networks:
   monitoring:
-    driver: overlay
+    external: true
   proxy:
     external: true

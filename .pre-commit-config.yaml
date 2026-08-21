@@ -8,6 +8,13 @@ repos:
         files: dashy-stack.yml
         pass_filenames: false
         always_run: true
+      - id: update-frigate-conf-hash
+        name: Update Frigate conf hash in stack YAML
+        entry: ./frigate-conf-hash.sh
+        language: script
+        files: frigate-stack.yml
+        pass_filenames: false
+        always_run: true
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:

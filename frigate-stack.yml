@@ -23,7 +23,9 @@ services:
       - "5000:5000"
     environment:
       FRIGATE_RTSP_PASSWORD: "admin"
-      CONFIG_HASH: "688cfc2c3a9416679b473b5961745e592217b8c9dff065c97e5db2c7901321a4"
+      CONFIG_HASH: "09b576f717713640c058aaa711b319264226789f08059117bcb179195774e107"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - proxy
     deploy:

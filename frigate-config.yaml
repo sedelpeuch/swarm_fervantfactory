@@ -1,6 +1,6 @@
 mqtt:
   enabled: true
-  host: localhost
+  host: host.docker.internal
 
 record:
   enabled: true

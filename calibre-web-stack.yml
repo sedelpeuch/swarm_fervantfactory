@@ -64,7 +64,8 @@ services:
       labels:
         - traefik.enable=true
         - traefik.http.routers.calibre.rule=Host(`calibre.fervantfactory.delpeuch.net`)
-        - traefik.http.routers.calibre.entrypoints=web
+        - traefik.http.routers.calibre.entrypoints=websecure
+        - traefik.http.routers.calibre.tls.certresolver=gandi
         - traefik.http.services.calibre.loadbalancer.server.port=8083
     networks:
       - proxy

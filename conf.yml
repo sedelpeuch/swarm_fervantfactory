@@ -65,7 +65,7 @@ sections:
       - title: Home Assistant
         description: Home automation platform
         icon: fas fa-house
-        url: http://192.168.1.29:8123/
+        url: https://ha.fervantfactory.delpeuch.net/
         id: 0_2001_homeassistant
       - title: n8n
         description: Workflow automation
@@ -151,7 +151,7 @@ sections:
       - title: Traefik
         description: Reverse proxy dashboard
         icon: fas fa-route
-        url: http://100.124.86.40:8080/dashboard/
+        url: https://traefik.fervantfactory.delpeuch.net/dashboard/
         id: 4_2004_traefik
         target: newtab
     icon: fas fa-network-wired

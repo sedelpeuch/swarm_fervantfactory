@@ -154,6 +154,16 @@ sections:
         url: https://traefik.fervantfactory.delpeuch.net/dashboard/
         id: 4_2004_traefik
         target: newtab
+      - title: Prometheus
+        description: Metrics collection
+        icon: fas fa-chart-area
+        url: https://prometheus.fervantfactory.delpeuch.net/
+        id: 5_2004_prometheus
+      - title: Grafana
+        description: Dashboards et visualisation
+        icon: fas fa-chart-pie
+        url: https://grafana.fervantfactory.delpeuch.net/
+        id: 6_2004_grafana
     icon: fas fa-network-wired
   - name: Devlinks
     displayData:
